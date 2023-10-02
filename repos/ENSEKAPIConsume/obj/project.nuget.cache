@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "1ctqWnP0PBbEyq6M3f8Fnr5Twhng9agt9kYl3P3Ap61NqLyshN/mf9Ke4C2U6BpCnEuFR/NFFjpGOivJ8875PQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\SGY\\source\\repos\\ENSEKAPIConsume\\ENSEKAPIConsume.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\SGY\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

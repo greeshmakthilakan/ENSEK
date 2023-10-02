@@ -1,0 +1,91 @@
+﻿@model Counts
+<style>
+    .red-bg {
+        color: red;
+    }
+
+    .green-bg {
+        color: green;
+    }
+</style>
+<a asp-action="Index" class="btn btn-sm btn-outline-primary">Back</a>
+<div style="padding-bottom : 40px;"></div>
+@if (Model != null)
+{
+   
+    <div>
+        <table class="table table-sm table-striped table-hover border-bottom">
+            <tr class="table-primary">
+                <td class="table-primary">Successful : @Model.successCount</td>
+
+                <td class="table-primary">Failed : @Model.failCount</td>
+
+            </tr>
+        </table>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-sm table-striped table-hover border-bottom">
+                <thead>
+                    <tr>
+                        <th class="d-none d-lg-table-cell">
+                            @Html.DisplayNameFor(model => model.results[0].isSuccessString)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.results[0].account)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.results[0].readDate)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.results[0].readValue)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.results[0].message)
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.results.Count > 0)
+                    {
+                        @foreach (var item in Model.results)
+                        {
+                            <tr class="@(item.result?"table-success":"table-danger")">
+                                <td class="d-none d-lg-table-cell">
+                                    @Html.DisplayFor(modelItem => item.isSuccessString)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.account)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.readDate)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.readValue)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.message)
+                                </td>
+
+
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="6" class="text-center">
+                                No records Found
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+}
+else
+{
+    <p class="red-bg">@ViewBag.ErrorMessage</p>
+}

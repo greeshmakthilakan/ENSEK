@@ -1,0 +1,39 @@
+﻿
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+</div>
+    <h2>Upload File</h2>
+    
+
+    <form asp-controller="Home" asp-action="AddFile" method="post" enctype="multipart/form-data">
+    <input class="btn btn-sm btn-primary" type="file" name="file" accept=".csv"/>
+
+            <button type="submit" id="csvAdd" class="btn btn-sm btn-outline-primary">Add</button>
+    </form>
+    <div style="display:none;" id="spinner">
+        <div  class="d-flex justify-content-center" style="padding-top:40px; display:none">
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+    </div>
+    
+    
+
+<script>
+    $(document).ready(function () {
+        $("#spinner").hide();
+        $("#csvAdd").click(function () {
+            // disable button
+            $(this).prop("disabled", true);
+            // add spinner to button
+            $("#spinner").style.display = "block";
+        });
+    });
+
+</script>

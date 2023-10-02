@@ -1,0 +1,4 @@
+﻿[*.cs]
+
+# CS8597: Thrown value may be null.
+dotnet_diagnostic.CS8597.severity = none
